@@ -18,7 +18,7 @@ namespace eu.sig.training.ch04.v1
 
         private Transfer MakeTransferWithValidAccountNumber(string counterAccount, Money amount)
         {
-            int sum = CalculateSum(counterAccount);
+            int sum = Accounts.CalculateSum(counterAccount);
             if (sum % 11 == 0)
             {
                 // 2. Look up counter account and make transfer object:
@@ -38,16 +38,6 @@ namespace eu.sig.training.ch04.v1
             {
                 throw new BusinessException("Invalid account number!!");
             }
-        }
-
-        private static int CalculateSum(string counterAccount)
-        {
-            int sum = 0;
-            for (int i = 0; i < counterAccount.Length; i++)
-            {
-                sum = sum + (9 - i) * (int)Char.GetNumericValue(counterAccount[i]);
-            }
-            return sum;
         }
     }
 }
