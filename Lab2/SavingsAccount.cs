@@ -11,7 +11,7 @@ namespace eu.sig.training.ch04.v1
             // 1. Assuming result is 9-digit bank account number, validate 11-test:
             if (String.IsNullOrEmpty(counterAccount) || counterAccount.Length != 9)
             {
-                throw new BusinessException("Invalid account number!");
+                throw new BusinessException("Account number is empty or not 9 digits!");
             }
             return MakeTransferWithValidAccountNumber(counterAccount, amount);
         }
